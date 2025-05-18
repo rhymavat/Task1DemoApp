@@ -1,27 +1,47 @@
 package com.example.task1demoapp.ui.theme
 
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
 
-// Define a light color scheme for the app
 private val LightColors = lightColorScheme(
-    primary = Color(0xFF3F51B5),     // Indigo
-    onPrimary = Color.White,
-    secondary = Color(0xFF2196F3),   // Blue
-    onSecondary = Color.White,
-    background = Color.White,
-    onBackground = Color.Black,
-    surface = Color.White,
-    onSurface = Color.Black,
+    primary = md_theme_light_primary,
+    onPrimary = md_theme_light_onPrimary,
+    secondary = md_theme_light_secondary,
+    onSecondary = md_theme_light_onSecondary,
+    background = md_theme_light_background,
+    onBackground = md_theme_light_onBackground,
+    surface = md_theme_light_surface,
+    onSurface = md_theme_light_onSurface,
+    error = md_theme_light_error,
+    onError = md_theme_light_onError,
 )
 
-// The theme wrapper for your app's UI
+private val DarkColors = darkColorScheme(
+    primary = md_theme_dark_primary,
+    onPrimary = md_theme_dark_onPrimary,
+    secondary = md_theme_dark_secondary,
+    onSecondary = md_theme_dark_onSecondary,
+    background = md_theme_dark_background,
+    onBackground = md_theme_dark_onBackground,
+    surface = md_theme_dark_surface,
+    onSurface = md_theme_dark_onSurface,
+    error = md_theme_dark_error,
+    onError = md_theme_dark_onError,
+)
+
 @Composable
-fun Task1DemoAppTheme(content: @Composable () -> Unit) {
+fun Task1DemoAppTheme(
+    darkTheme: Boolean = false, // You can add logic here to switch themes automatically
+    content: @Composable () -> Unit
+) {
+    val colors = if (darkTheme) DarkColors else LightColors
+
     MaterialTheme(
-        colorScheme = LightColors,
+        colorScheme = colors,
+        typography = Task1DemoAppTypography,
+        shapes = Task1DemoAppShapes,
         content = content
     )
 }

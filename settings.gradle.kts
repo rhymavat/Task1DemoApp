@@ -10,12 +10,11 @@ pluginManagement {
         id("org.jetbrains.kotlin.android") version "1.9.20"
     }
 }
-
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
+        maven("https://jitpack.io") // Optional, if you use GitHub dependencies
     }
 }
 
